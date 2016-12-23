@@ -9,5 +9,5 @@ defmodule Leakbot.Bot do
     {:ok, state}
   end
 
-  def handle_event(_message, _slack, state), do: {:ok, state}
+  def handle_event(_event, _slack, state), do: {:ok, state}
 end
