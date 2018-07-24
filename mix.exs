@@ -16,6 +16,6 @@ defmodule Leakbot.Mixfile do
   end
 
   defp deps do
-    [{:slack, "~> 0.9.1"}]
+    [{:slack, "~> 0.14.0"}]
   end
 end
