@@ -1,10 +1,11 @@
 defmodule Leakbot.Bot do
-  # Inclusions
   use Slack
 
-  def handle_event(%{channel: "D" <> _, type: "message", text: text}, slack, state) do
-    leak_channel = Application.get_env(:leakbot, :leak_channel);
-    send_message("🚿 #{text}", leak_channel, slack)
+  alias Slack.Web.Chat
+
+  def handle_event(%{channel: "D" <> _, type: "message", text: text}, _slack, state) do
+    leak_channel_id = Application.get_env(:leakbot, :leak_channel_id)
+    Chat.post_message(leak_channel_id, "🚿 #{text}")
 
     {:ok, state}
   end
